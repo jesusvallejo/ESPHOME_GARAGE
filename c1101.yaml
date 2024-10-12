@@ -54,7 +54,7 @@ sensor:
       App.register_component(my_sensor);
       return {my_sensor};
     sensors:
-      id: transciver
+      id: transceiver
       internal: true
 
 remote_transmitter:
@@ -68,7 +68,7 @@ switch: # instead of button, Matterbridge as of this date does not suppont butto
     name: "garaje"
     icon: "mdi:gate"
     turn_on_action:
-        - lambda: get_cc1101(transciver).beginTransmission();
+        - lambda: get_cc1101(transceiver).beginTransmission();
         - remote_transmitter.transmit_raw:
             # prettier-ignore
             # encoding in binary is better for Clemsa than encoding by timing, for Clemsa MV12 each bit is 60 - 65 microseconds
